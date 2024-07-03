@@ -6,15 +6,20 @@ namespace CineAvalia.ViewComponents
 {
     public class Menu : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync() 
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
 
-            if (string.IsNullOrEmpty(sessaoUsuario)) return null;
+            if (string.IsNullOrEmpty(sessaoUsuario))
+            {
+                Usuario usuarioPadrao = new Usuario();
+
+                return View("Default", usuarioPadrao);
+            }
 
             Usuario usuario = JsonConvert.DeserializeObject<Usuario>(sessaoUsuario);
 
-            return View(usuario);
+            return View("Default", usuario);
         }
     }
 }

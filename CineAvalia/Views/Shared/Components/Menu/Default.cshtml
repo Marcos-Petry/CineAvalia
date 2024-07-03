@@ -14,7 +14,7 @@
             <a class="nav-link text-dark" asp-area="" asp-controller="Filme" asp-action="Index">Filmes</a>
         </li>
 
-        @if (Model.TipoUsuario == Usuario.Tipo.Administrador)
+        @if (Model.Senha != null && Model.TipoUsuario == Usuario.Tipo.Administrador)
         {
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="" asp-controller="Genero" asp-action="Index">Generos</a>
@@ -30,8 +30,18 @@
             </li>
         }
 
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
-        </li>
+
+        @if (Model.Senha != null)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+            </li>
+        }
     </ul>
 </div>

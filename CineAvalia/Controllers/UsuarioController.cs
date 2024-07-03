@@ -11,7 +11,7 @@ using CineAvalia.Filters;
 
 namespace CineAvalia.Controllers
 {
-    [PaginaRestritaAdmin]
+    //[PaginaRestritaAdmin]
     public class UsuarioController : Controller
     {
         private readonly CineAvaliaContext _context;

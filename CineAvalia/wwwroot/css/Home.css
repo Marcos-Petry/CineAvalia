@@ -1,0 +1,17 @@
+﻿.linha-imagens {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Espaçamento entre as linhas */
+}
+
+    .linha-imagens img {
+        width: 30%; /* Define a largura de cada imagem para ocupar aproximadamente 30% da largura total da linha */
+        max-width: 200px; /* Limita a largura máxima de cada imagem para evitar que fiquem muito grandes em telas grandes */
+        height: auto; /* Garante que a altura das imagens ajuste automaticamente para manter a proporção */
+    }
+
+
+img {
+    width: 100%;
+    height: auto;
+}

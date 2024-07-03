@@ -60,3 +60,38 @@ else
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+
+<!-- Exibição das Avaliações -->
+<h2>Avaliações</h2>
+<ul>
+    @if (Model.Avaliacoes != null && Model.Avaliacoes.Any())
+    {
+        foreach (var avaliacao in Model.Avaliacoes)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nota</th>
+                        <th>Comentário</th>
+                        <th>Data Avaliação</th>
+                        <th>Usuário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>@avaliacao.Nota</td>
+                            <td>@avaliacao.Comentario</td>
+                            <td>@avaliacao.DataAvaliacao</td>
+                            <td>@avaliacao.Usuario.Nome</td>
+                        </tr>
+                </tbody>
+            </table>
+        }
+    }
+    else
+    {
+        <p>Nenhuma avaliação encontrada.</p>
+    }
+
+</ul>

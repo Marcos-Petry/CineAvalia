@@ -39,11 +39,15 @@ namespace CineAvalia.Controllers
             var filme = await _context.Filme
                 .Include(f => f.Genero)
                 .Include(f => f.Produtora)
+                .Include(f => f.Avaliacoes)
+                    .ThenInclude(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (filme == null)
             {
                 return NotFound();
             }
+
+            filme.Avaliacoes ??= new List<Avaliacao>();
 
             return View(filme);
         }
