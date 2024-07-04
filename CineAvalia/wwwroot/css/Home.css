@@ -1,17 +1,24 @@
-﻿.linha-imagens {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px; /* Espaçamento entre as linhas */
+﻿body {
+    font-family: Arial, sans-serif;
 }
 
-    .linha-imagens img {
-        width: 30%; /* Define a largura de cada imagem para ocupar aproximadamente 30% da largura total da linha */
-        max-width: 200px; /* Limita a largura máxima de cada imagem para evitar que fiquem muito grandes em telas grandes */
-        height: auto; /* Garante que a altura das imagens ajuste automaticamente para manter a proporção */
-    }
+h1 {
+    color: #333;
+    text-align: center;
+}
 
+p {
+    text-align: justify;
+    margin-bottom: 20px;
+}
 
-img {
-    width: 100%;
+.fotos {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.fotos img {
+    width: 30%;
     height: auto;
 }
