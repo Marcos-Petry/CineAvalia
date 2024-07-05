@@ -113,7 +113,7 @@ namespace CineAvalia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,AnoLancamento,Descricao,GeneroId,ProdutoraId")] Filme filme)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Nome,AnoLancamento,Descricao,GeneroId,ProdutoraId, ImagemFile")] Filme filme)
         {
             if (id != filme.Id)
             {
@@ -124,6 +124,16 @@ namespace CineAvalia.Controllers
             {
                 try
                 {
+                    if (filme.ImagemFile != null && filme.ImagemFile.Length > 0)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            await filme.ImagemFile.CopyToAsync(memoryStream);
+                            filme.Imagem = memoryStream.ToArray();
+                        }
+                    }
+
+
                     _context.Update(filme);
                     await _context.SaveChangesAsync();
                 }
