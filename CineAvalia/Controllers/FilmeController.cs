@@ -104,7 +104,7 @@ namespace CineAvalia.Controllers
                 return NotFound();
             }
             ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome", filme.GeneroId);
-            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nacionalidade", filme.ProdutoraId);
+            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nome", filme.ProdutoraId);
             return View(filme);
         }
 
@@ -151,7 +151,7 @@ namespace CineAvalia.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome", filme.GeneroId);
-            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nacionalidade", filme.ProdutoraId);
+            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nome", filme.ProdutoraId);
             return View(filme);
         }
 
