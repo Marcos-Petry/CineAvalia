@@ -78,7 +78,7 @@ namespace CineAvalia.Controllers
 
                 if (_sessao.BuscarSessaoUsuario() == null)
                 {
-                    return RedirectToAction("Index", "Login");
+                     return RedirectToAction("Index", "Login");
                 }
                 else
                 {
