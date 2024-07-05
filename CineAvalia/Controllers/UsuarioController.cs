@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CineAvalia.Data;
 using CineAvalia.Models;
 using CineAvalia.Filters;
+using CineAvalia.Helper;
 
 namespace CineAvalia.Controllers
 {
@@ -15,10 +16,11 @@ namespace CineAvalia.Controllers
     public class UsuarioController : Controller
     {
         private readonly CineAvaliaContext _context;
-
-        public UsuarioController(CineAvaliaContext context)
+        private readonly ISessao _sessao;
+        public UsuarioController(CineAvaliaContext context, ISessao sessao)
         {
             _context = context;
+            _sessao = sessao;
         }
 
         // começo do que eu fiz
@@ -73,7 +75,15 @@ namespace CineAvalia.Controllers
                 usuario.SetSenhaHash();
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                if (_sessao.BuscarSessaoUsuario() == null)
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+                else
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
 
             return View(usuario);
