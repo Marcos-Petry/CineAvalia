@@ -56,7 +56,7 @@ namespace CineAvalia.Controllers
         public IActionResult Create()
         {
             ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome");
-            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nacionalidade");
+            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nome");
             return View();
         }
 
@@ -86,7 +86,7 @@ namespace CineAvalia.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["GeneroId"] = new SelectList(_context.Genero, "Id", "Nome", filme.GeneroId);
-            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nacionalidade", filme.ProdutoraId);
+            ViewData["ProdutoraId"] = new SelectList(_context.Produtora, "Id", "Nome", filme.ProdutoraId);
             return View(filme);
         }
 
