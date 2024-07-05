@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Filmes";
+}
+
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +14,7 @@
 <body>
 
     <p>
-        <a asp-action="Create" class="btn-add">Adicionar Filme</a>
+        <a asp-action="Create" class="btn-add">Adicionar</a>
     </p>
     <div class="container">
         <h1>Filmes</h1>
@@ -32,7 +36,7 @@
                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn">Editar</a>
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn">Detalhes</a>
                         <a asp-controller="Avaliacaos" asp-action="Create" asp-route-id="@item.Id" class="btn">Avaliar</a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn">Deletar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn">Excluir</a>
                     </div>
                 </div>
             }
