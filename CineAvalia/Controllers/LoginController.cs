@@ -25,7 +25,7 @@ namespace CineAvalia.Controllers
         {
             _sessao.RemoverSessaoUsuario();
 
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Home");
         }
 
 
