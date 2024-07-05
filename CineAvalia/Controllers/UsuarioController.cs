@@ -121,6 +121,7 @@ namespace CineAvalia.Controllers
             {
                 try
                 {
+                    usuario.SetSenhaHash();
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }
